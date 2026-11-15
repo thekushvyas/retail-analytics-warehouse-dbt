@@ -1,0 +1,11 @@
+version: 2
+sources:
+  - name: raw
+    schema: raw
+    tables:
+      - name: transactions
+      - name: products
+      - name: demographics
+      - name: campaigns
+      - name: campaign_descriptions
+      - name: coupon_redemptions

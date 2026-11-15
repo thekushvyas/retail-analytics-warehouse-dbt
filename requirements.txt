@@ -1,0 +1,6 @@
+dbt-duckdb>=1.8
+duckdb
+completejourney_py
+pandas
+matplotlib
+jupyter

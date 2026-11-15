@@ -1,0 +1,7 @@
+warehouse.duckdb
+warehouse.duckdb.wal
+target/
+logs/
+dbt_packages/
+.ipynb_checkpoints/
+.user.yml

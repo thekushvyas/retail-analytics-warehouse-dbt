@@ -1,0 +1,44 @@
+version: 2
+models:
+  - name: dim_household
+    description: One row per household that appears in transactions.
+    columns:
+      - name: household_id
+        tests: [unique, not_null]
+  - name: dim_product
+    columns:
+      - name: product_id
+        tests: [unique, not_null]
+  - name: dim_date
+    columns:
+      - name: date_day
+        tests: [unique, not_null]
+  - name: fct_sales
+    description: Basket-line fact table.
+    columns:
+      - name: household_id
+        tests:
+          - relationships:
+              arguments:
+                to: ref('dim_household')
+                field: household_id
+      - name: product_id
+        tests:
+          - relationships:
+              arguments:
+                to: ref('dim_product')
+                field: product_id
+      - name: transaction_date
+        tests:
+          - relationships:
+              arguments:
+                to: ref('dim_date')
+                field: date_day
+  - name: fct_baskets
+    columns:
+      - name: basket_id
+        tests: [unique, not_null]
+  - name: mart_weekly_kpis
+    columns:
+      - name: week_start
+        tests: [unique, not_null]
